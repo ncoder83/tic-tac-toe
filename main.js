@@ -137,6 +137,10 @@ function resetGridStyle(gridCells){
     });
 }
 
+function checkWinningPattern(gridCells){
+    
+}
+
 cells.forEach( function(cell){    
     cell.addEventListener('click', function(){        
         
@@ -171,5 +175,7 @@ cells.forEach( function(cell){
         }                        
     });
 })
+
+
 
 
