@@ -1,0 +1,47 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 300px;
+    margin: 0 auto;    
+}
+
+#label{
+    text-align: center;
+}
+
+#gameboard{
+    
+    border-collapse: collapse;
+}
+
+#gameboard td{
+    border:solid 2px #777;
+    width: 60px;
+    height:60px;
+    background-color: #FFF;
+}
+
+.btn{
+    border:solid 1px #222;
+    height: 30px;
+    width: auto;
+    background-color: #AAA;
+    color: #FFF;
+}
+
+.fillx{
+    background-color: #F00!important;
+    color:#FFF;
+}
+
+.fillo{
+    background-color: #0F0!important;
+    content: "O";
+}
+
+.empty{
+    background-color: #FFF;
+    content: "";
+}
