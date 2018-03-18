@@ -62,7 +62,7 @@ Grid.prototype.getHeight = function(){
 }
 
 Grid.prototype.getCell = function(x, y){    
-    var selected;
+    let selected;
      
     GRID.forEach(function(cell){
         if(cell.x === x && cell.y === y){
@@ -71,6 +71,15 @@ Grid.prototype.getCell = function(x, y){
     });
 
     return selected;
+};
+
+Grid.prototype.getEmptyCells = function(){
+    let emptyCells = [];
+    GRID.forEach(function(cell){
+        if(cell.state === STATES.E)
+            emptyCells.push(cell);
+    });
+    return emptyCells;
 };
 
 Grid.prototype.reset = function(){
@@ -97,6 +106,7 @@ Grid.prototype.toString = function(){
 let players = document.getElementsByName('player');
 let startButton = document.getElementById('start');
 let resetButton = document.getElementById('reset');
+let scoreBoard = document.getElementById('scoreboard');
 
 let gameGrid = new Grid(3,3);
 
@@ -159,6 +169,13 @@ cells.forEach( function(cell){
             return;//don't continue
         }
 
+        let emptyCells = gameGrid.getEmptyCells();
+
+        //no more play to make
+        if(emptyCells.length == 0){
+            scoreBoard.innerHTML = 'GAME OVER';
+            return;
+        }
         //you can only change the state if it's empty
         if(cellClicked.state == "E"){
 
@@ -172,7 +189,9 @@ cells.forEach( function(cell){
             }
             //only show when the state has been updated
             console.log(cellClicked);
-        }                        
+        }    
+        
+        console.log(gameGrid.getEmptyCells());
     });
 })
 
