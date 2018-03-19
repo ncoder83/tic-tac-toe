@@ -32,13 +32,11 @@
 }
 
 .fillx{
-    background-color: #F00!important;
-    color:#FFF;
+    background-color: #F00!important;    
 }
 
 .fillo{
-    background-color: #0F0!important;
-    content: "O";
+    background-color: #0F0!important;    
 }
 
 .empty{

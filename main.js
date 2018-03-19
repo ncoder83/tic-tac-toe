@@ -74,12 +74,11 @@ Grid.prototype.getCell = function(x, y){
 };
 
 Grid.prototype.getEmptyCells = function(){
-    let emptyCells = [];
-    GRID.forEach(function(cell){
-        if(cell.state === STATES.E)
-            emptyCells.push(cell);
+    
+    return GRID.filter(function(cell){
+        return cell.state === STATES.E;
     });
-    return emptyCells;
+   
 };
 
 Grid.prototype.reset = function(){
@@ -100,24 +99,29 @@ Grid.prototype.toString = function(){
     return GRID.join(',');    
 }
 
+
+
+function GameBoard(grid){
+    this.grid = grid;
+}
 //===========================================================
 // Behavior manipulation
 
-let players = document.getElementsByName('player');
+let players     = document.getElementsByName('player');
 let startButton = document.getElementById('start');
 let resetButton = document.getElementById('reset');
-let scoreBoard = document.getElementById('scoreboard');
+let scoreBoard  = document.getElementById('scoreboard');
 
 let gameGrid = new Grid(3,3);
 
 //start startButton is clicked
 startButton.addEventListener('click', function(){
-    gameGrid.build();  
-    var cell = gameGrid.getCell(0,0);        
+    gameGrid.build();           
 });
 
 resetButton.addEventListener('click', function(){
     gameGrid.reset();
+    //get all the cells in the grid
     let cells = document.querySelectorAll('#gameboard td');
     resetGridStyle(cells);
 });
